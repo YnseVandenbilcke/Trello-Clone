@@ -1,0 +1,24 @@
+{
+  "runtime": "Net100",
+  "defaultVariables": null,
+  "documentGenerator": {
+    "fromDocument": {
+      "url": "http://localhost:5000/swagger/v1/swagger.json",
+      "output": null,
+      "newLineBehavior": "Auto"
+    }
+  },
+  "codeGenerators": {
+    "openApiToTypeScriptClient": {
+      "className": "Client",
+      "template": "Angular",
+      "output": "../TrelloClone-frontend/src/app/api-client.ts",
+      "generateClientClasses": true,
+      "generateClientInterfaces": true,
+      "useSingletonProvider": true,
+      "wrapDtoExceptions": false,
+      "useHttpClient": true,
+      "injectionTokenType": "InjectionToken"
+    }
+  }
+}

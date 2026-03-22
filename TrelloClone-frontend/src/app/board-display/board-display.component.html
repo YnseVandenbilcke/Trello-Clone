@@ -1,0 +1,14 @@
+@if (board()) {
+    <div class="board-container">
+        <div>{{ board()?.name }}</div>
+        <hr />
+
+        <div class="column-container">
+            @for (column of board()?.columns; track column.id) {
+                <div class="column">
+                    <app-column [column]="column"></app-column>                    
+                </div>
+            }
+        </div>
+    </div>
+}

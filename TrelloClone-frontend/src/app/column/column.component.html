@@ -1,0 +1,15 @@
+@if (column()) {
+    <div class="column">
+        <div class="column-styling">
+            <div class="column-name">
+                {{ column()?.name }}
+            </div>
+
+            <div class="task-container">
+                @for (task of column()?.tasks; track task.id) {
+                    <app-task [task]="task"></app-task>
+                }
+            </div>
+        </div>
+    </div>
+}
