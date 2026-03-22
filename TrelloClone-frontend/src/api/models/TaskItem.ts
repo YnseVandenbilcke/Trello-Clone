@@ -5,11 +5,11 @@
 import type { Column } from './Column';
 import type { TaskType } from './TaskType';
 export type TaskItem = {
-    id?: string;
-    title?: string | null;
-    description?: string | null;
-    taskType?: TaskType;
-    columnId?: string;
-    column?: Column;
+    Id?: string;
+    Title?: string | null;
+    Description?: string | null;
+    TaskType?: TaskType;
+    ColumnId?: string;
+    Column?: Column;
 };
 

@@ -6,8 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
-  },
+    "test": "ng test",
+    "generate-api": "powershell -Command \"Invoke-WebRequest 'http://localhost:5000/swagger/v1/swagger.json' -OutFile 'swagger.json'; npx openapi-typescript-codegen --input './swagger.json' --output 'src/api' --client axios --useOptions\""  },
   "private": true,
   "dependencies": {
     "@angular/animations": "^19.0.0",

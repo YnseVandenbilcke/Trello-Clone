@@ -1,11 +1,16 @@
-<div class="task" [ngClass]="getTaskTypeClass(task()?.type)">
+<div class="task" [ngClass]="getTaskTypeClass(task()?.Type)">
     <div class="task-header"></div>
-    <div class="task-styling">
-        <span class="title">
-            {{ task()?.title }}
-        </span>
-        <span class="description">
-            {{ task()?.description }}
-        </span>
+    <div class="task-interaction">
+        <div class="delete-button" (click)="deleteTask()">
+            <img [src]="'assets/delete.png'" />
+        </div>
+        <div class="task-styling">
+            <span class="title">
+                {{ task()?.Title }}
+            </span>
+            <span class="description">
+                {{ task()?.Description }}
+            </span>
+        </div>
     </div>
 </div>

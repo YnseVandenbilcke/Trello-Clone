@@ -2,11 +2,14 @@
     <div class="column">
         <div class="column-styling">
             <div class="column-name">
-                {{ column()?.name }}
+                {{ column()?.Name }}
+                <div class="add-button" (click)="addTask()">
+                    <img [src]="'assets/plus.png'" />
+                </div>
             </div>
 
             <div class="task-container">
-                @for (task of column()?.tasks; track task.id) {
+                @for (task of column()?.Tasks; track task.Id) {
                     <app-task [task]="task"></app-task>
                 }
             </div>

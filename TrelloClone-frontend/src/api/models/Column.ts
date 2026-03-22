@@ -5,10 +5,10 @@
 import type { Board } from './Board';
 import type { TaskItem } from './TaskItem';
 export type Column = {
-    id?: string;
-    name?: string | null;
-    boardId?: string;
-    board?: Board;
-    tasks?: Array<TaskItem> | null;
+    Id?: string;
+    Name?: string | null;
+    BoardId?: string;
+    Board?: Board;
+    Tasks?: Array<TaskItem> | null;
 };
 

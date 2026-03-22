@@ -9,6 +9,6 @@ namespace TrelloClone.Api.Models
         public TaskType TaskType { get; set; }
 
         public Guid ColumnId { get; set; }
-        public Column Column { get; set; }
+        public Column? Column { get; set; }
     }
 }

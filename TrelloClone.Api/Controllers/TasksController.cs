@@ -46,6 +46,12 @@ namespace TrelloClone.Api.Controllers
             return CreatedAtAction(nameof(GetTaskById), new { id = created.Id }, created);
         }
 
+        [HttpDelete]
+        public async Task DeleteTask(Guid taskId)
+        {
+            await _taskRepository.DeleteAsync(taskId);
+        }
+
         private TaskDto TaskToDto(TaskItem task)
         {
             return new TaskDto

@@ -35,6 +35,23 @@ export class TasksService {
         });
     }
     /**
+     * @returns any OK
+     * @throws ApiError
+     */
+    public static deleteApiTasks({
+        taskId,
+    }: {
+        taskId?: string,
+    }): CancelablePromise<any> {
+        return __request(OpenAPI, {
+            method: 'DELETE',
+            url: '/api/Tasks',
+            query: {
+                'taskId': taskId,
+            },
+        });
+    }
+    /**
      * @returns TaskDto OK
      * @throws ApiError
      */

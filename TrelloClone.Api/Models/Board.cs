@@ -6,6 +6,6 @@ namespace TrelloClone.Api.Models
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
-        public List<Column> Columns { get; set; }
+        public List<Column> Columns { get; set; } = [];
     }
 }

@@ -4,8 +4,8 @@
 /* eslint-disable */
 import type { ColumnDto } from './ColumnDto';
 export type BoardDto = {
-    id?: string;
-    name?: string | null;
-    columns?: Array<ColumnDto> | null;
+    Id?: string;
+    Name?: string | null;
+    Columns?: Array<ColumnDto> | null;
 };
 

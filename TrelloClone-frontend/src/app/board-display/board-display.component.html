@@ -1,12 +1,12 @@
 @if (board()) {
     <div class="board-container">
-        <div>{{ board()?.name }}</div>
+        <div>{{ board()?.Name }}</div>
         <hr />
 
         <div class="column-container">
-            @for (column of board()?.columns; track column.id) {
+            @for (column of board()?.Columns; track column.Id) {
                 <div class="column">
-                    <app-column [column]="column"></app-column>                    
+                    <app-column [column]="column" [boardId]="board()?.Id"></app-column>                    
                 </div>
             }
         </div>

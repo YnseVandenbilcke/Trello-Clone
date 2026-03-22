@@ -1,6 +1,9 @@
-import { Component, input } from '@angular/core';
-import { TaskDto, TaskType } from '../../api';
+import { Component, input, OnDestroy } from '@angular/core';
+import { TaskDto, TasksService, TaskType } from '../../api';
 import { NgClass } from '@angular/common';
+import { from } from 'form-data';
+import { finalize, Subject, takeUntil } from 'rxjs';
+import { fromCancelable } from '../utils/rxjs-helpers';
 
 @Component({
     selector: 'app-task',
@@ -8,8 +11,15 @@ import { NgClass } from '@angular/common';
     templateUrl: './task.component.html',
     styleUrl: './task.component.less'
 })
-export class TaskComponent {
+export class TaskComponent implements OnDestroy {
     public task = input<TaskDto | null>();
+
+    private onDestroy$ = new Subject<void>();
+
+    public ngOnDestroy(): void {
+        this.onDestroy$.next();
+        this.onDestroy$.complete();
+    }
 
     public getTaskTypeClass(type?: TaskType): string {
         switch (type) {
@@ -24,5 +34,14 @@ export class TaskComponent {
             default:
                 return 'task-default';
         }
+    }
+
+    public async deleteTask(): Promise<void> {
+        fromCancelable(TasksService.deleteApiTasks({ taskId: this.task()?.Id }))
+            .pipe(takeUntil(this.onDestroy$))
+            .subscribe({
+                next: () => console.log('Deleted!'),
+                error: (err) => console.error(err)
+            });
     }
 }

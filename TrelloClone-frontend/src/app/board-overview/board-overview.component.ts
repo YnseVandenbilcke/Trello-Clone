@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit, output, signal } from '@angular/core';
 import { Board, BoardDto, BoardService } from '../../api';
 import { finalize, from, Subject, takeUntil } from 'rxjs';
 import { SpinnerComponent } from "../spinner/spinner.component";
+import { fromCancelable } from '../utils/rxjs-helpers';
 
 @Component({
     selector: 'app-board-overview',
@@ -19,10 +20,13 @@ export class BoardOverviewComponent implements OnInit, OnDestroy {
 
     public ngOnInit(): void {
         this.loading.set(true);
-        from(BoardService.getApiBoard())
-            .pipe(takeUntil(this.onDestroy$), finalize(() => {
-                this.loading.set(false)
-            }))
+        fromCancelable(BoardService.getApiBoard())
+            .pipe(
+                takeUntil(this.onDestroy$),
+                finalize(() => {
+                    this.loading.set(false);
+                })
+            )
             .subscribe((result) => {
                 this.boards.set(result);
             });

@@ -2,7 +2,7 @@
     <app-board-overview (boardClicked)="setSelectedBoard($event)"></app-board-overview>
     <div class="main-content">
         @if (selectedBoard() != null) {
-            <app-board-display [board]="selectedBoard()"></app-board-display>
+            <app-board-display [inputBoard]="selectedBoard()"></app-board-display>
         } @else {
             <div class="board-details">
                 Select a board to see its columns and tasks.

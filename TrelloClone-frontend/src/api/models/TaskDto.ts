@@ -4,10 +4,10 @@
 /* eslint-disable */
 import type { TaskType } from './TaskType';
 export type TaskDto = {
-    id?: string;
-    title?: string | null;
-    description?: string | null;
-    type?: TaskType;
-    columnId?: string;
+    Id?: string;
+    Title?: string | null;
+    Description?: string | null;
+    Type?: TaskType;
+    ColumnId?: string;
 };
 
